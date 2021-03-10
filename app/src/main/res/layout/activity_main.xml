@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_horizontal_margin"
+    tools:context=".petslist.MainActivity">
+
+    <ProgressBar
+        android:id="@+id/pbLoader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/llButtonsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnChat"
+            style="@style/Style_SupportButtons"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/btn_chat_bg"
+            android:text="@string/lbl_chat"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/btnCall"
+            style="@style/Style_SupportButtons"
+            android:background="@drawable/btn_call_bg"
+            android:text="@string/lbl_call"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+    <TextView android:visibility="gone"
+        android:id="@+id/tvOfficeHrs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/work_hrs_bg"
+        android:gravity="center"
+        android:minHeight="40dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:text="Office Hrs: M-F 10:00 - 18:00" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+</LinearLayout>

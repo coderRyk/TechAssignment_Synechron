@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Pet World</string>
+
+    <string name="lbl_chat">Chat</string>
+    <string name="lbl_call">Call</string>
+
+    <string name="msg_support_within_office_hrs">Thank you for getting in touch with us. We’ll get back to you as soon as possible</string>
+    <string name="msg_support_outside_office_hrs">Work hours has ended. Please contact us again on the next work day</string>
+
+    <string name="err_fetching_settings">Error while fetching Settings :</string>
+    <string name="err_fetch_settings_failed">\"Could not fetch settings \"</string>
+
+    <string name="err_fetching_pets_list">\"Error while fetching Pets list : \"</string>
+    <string name="err_fetching_pets_list_failed">\"Could not fetch pets list \"</string>
+
+</resources>
