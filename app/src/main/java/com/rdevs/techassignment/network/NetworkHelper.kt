@@ -6,14 +6,12 @@ import android.net.ConnectivityManager
 import com.rdevs.techassignment.models.PetsListResponse
 import com.rdevs.techassignment.models.Settings
 import com.rdevs.techassignment.models.SettingsResponse
+import com.rdevs.techassignment.utils.UiUtils
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import okhttp3.Call
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * Created by Rounak Khandeparkar on 3/12/21.
@@ -69,23 +67,12 @@ class NetworkHelper private constructor() {
         val workHours = settingsResponseObj.settings.workHours;
         val hrsDetails = workHours?.split(" ")
 
-        val startHrsDigits = hrsDetails?.get(1);
-        val endHrsDigits = hrsDetails?.get(3);
+        val startTimeHrs = hrsDetails?.get(1);
+        val endTimeHrs = hrsDetails?.get(3);
 
-        val formatter = SimpleDateFormat("HH:mm", Locale.getDefault())
+        val isWithinOfficeHrs = UiUtils.isCurrentTimeWithinTimeRange(startTimeHrs, endTimeHrs)
 
-        val calendar: Calendar = Calendar.getInstance(Locale.getDefault());
-        val currentHrs = calendar.get(Calendar.HOUR_OF_DAY);
-
-        calendar.time = formatter.parse(startHrsDigits)
-
-        val startHrs = calendar.get(Calendar.HOUR_OF_DAY);
-
-        calendar.time = formatter.parse(endHrsDigits)
-
-        val endHrs = calendar.get(Calendar.HOUR_OF_DAY);
-
-        settingsResponseObj.settings.isWithinOfficeHrs = currentHrs in startHrs..endHrs;
+        settingsResponseObj.settings.isWithinOfficeHrs = isWithinOfficeHrs
 
         return settingsResponseObj.settings
     }
