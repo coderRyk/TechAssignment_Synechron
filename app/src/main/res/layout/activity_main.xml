@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    android:padding="@dimen/activity_horizontal_margin"
-    tools:context=".petslist.MainActivity">
+    android:padding="@dimen/activity_horizontal_margin">
 
     <ProgressBar
         android:id="@+id/pbLoader"

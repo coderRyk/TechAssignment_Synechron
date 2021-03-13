@@ -12,5 +12,9 @@
 
     <string name="err_fetching_pets_list">\"Error while fetching Pets list : \"</string>
     <string name="err_fetching_pets_list_failed">\"Could not fetch pets list \"</string>
+    <string name="msg_no_internet">No Internet Connection</string>
+    <string name="btn_retry">Retry</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="msg_no_internet_desc">Make sure that WI-FI or mobile data is turned on, then try again</string>
 
 </resources>

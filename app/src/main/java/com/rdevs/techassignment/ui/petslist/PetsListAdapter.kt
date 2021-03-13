@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.rdevs.techassignment.petdetails.PetDetailsActivity
+import com.rdevs.techassignment.ui.petdetails.PetDetailsActivity
 import com.rdevs.techassignment.utils.imageloader.ImageLoader
 
 

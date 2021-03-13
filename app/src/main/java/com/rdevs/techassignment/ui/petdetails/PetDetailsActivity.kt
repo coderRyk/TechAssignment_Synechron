@@ -1,9 +1,10 @@
-package com.rdevs.techassignment.petdetails
+package com.rdevs.techassignment.ui.petdetails
 
 import Pet
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.LinearLayout
@@ -30,6 +31,8 @@ class PetDetailsActivity : AppCompatActivity() {
             title = pet.title
         }
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         pbContainer = findViewById(R.id.pbContainer)
         webView = findViewById(R.id.wvPetDetails)
 
@@ -46,6 +49,14 @@ class PetDetailsActivity : AppCompatActivity() {
         pet?.content_url?.let {
             webView.loadUrl(it) }
             ?: finish()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> onBackPressed()
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     private inner class MyWebViewClient : WebViewClient() {

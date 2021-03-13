@@ -1,7 +1,9 @@
 import android.os.Parcel
 import android.os.Parcelable
+import kotlinx.serialization.Serializable
 
 
+@Serializable
 data class Pet(
     val image_url: String?,
     val title: String?,
