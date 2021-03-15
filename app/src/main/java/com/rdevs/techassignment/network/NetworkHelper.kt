@@ -6,12 +6,14 @@ import android.net.ConnectivityManager
 import com.rdevs.techassignment.models.PetsListResponse
 import com.rdevs.techassignment.models.Settings
 import com.rdevs.techassignment.models.SettingsResponse
-import com.rdevs.techassignment.utils.UiUtils
+import com.rdevs.techassignment.utils.Utils
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import okhttp3.Call
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * Created by Rounak Khandeparkar on 3/12/21.
@@ -70,7 +72,11 @@ class NetworkHelper private constructor() {
         val startTimeHrs = hrsDetails?.get(1);
         val endTimeHrs = hrsDetails?.get(3);
 
-        val isWithinOfficeHrs = UiUtils.isCurrentTimeWithinTimeRange(startTimeHrs, endTimeHrs)
+        val isWithinOfficeHrs = Utils.isTimeWithinRange(
+            Calendar.getInstance(Locale.getDefault()),
+            startTimeHrs,
+            endTimeHrs
+        )
 
         settingsResponseObj.settings.isWithinOfficeHrs = isWithinOfficeHrs
 

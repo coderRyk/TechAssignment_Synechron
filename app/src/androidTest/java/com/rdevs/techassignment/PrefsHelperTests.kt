@@ -3,7 +3,6 @@ package com.rdevs.techassignment
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.rdevs.techassignment.utils.PrefsHelper
-import com.rdevs.techassignment.utils.UiUtils
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith

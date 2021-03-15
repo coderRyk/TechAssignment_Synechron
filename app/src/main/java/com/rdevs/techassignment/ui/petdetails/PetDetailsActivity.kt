@@ -10,17 +10,17 @@ import android.webkit.WebViewClient
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.rdevs.techassignment.R
-import com.rdevs.techassignment.utils.UiUtils
+import com.rdevs.techassignment.utils.toggleVisibility
 
 class PetDetailsActivity : AppCompatActivity() {
-
-    var pbContainer: LinearLayout? = null
 
     companion object {
         const val KEY_EXTRA_PET = "EXTRA_PET"
     }
 
     private lateinit var webView: WebView
+
+    private lateinit var pbContainer: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,15 +67,15 @@ class PetDetailsActivity : AppCompatActivity() {
 
         override fun onPageFinished(view: WebView?, url: String?) {
             Log.d("PetDetailsActivity", "onPageFinished ")
-            UiUtils.toggleVisibility(webView, true)
-            UiUtils.toggleVisibility(pbContainer, false)
+            webView.toggleVisibility(true)
+            pbContainer.toggleVisibility(true)
             super.onPageFinished(view, url)
         }
 
         override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
             Log.d("PetDetailsActivity", "onPageStarted ")
-            UiUtils.toggleVisibility(webView, false)
-            UiUtils.toggleVisibility(pbContainer, true)
+            webView.toggleVisibility(false)
+            pbContainer.toggleVisibility(true)
             super.onPageStarted(view, url, favicon)
         }
 

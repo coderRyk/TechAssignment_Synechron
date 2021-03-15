@@ -14,7 +14,7 @@ import com.rdevs.techassignment.utils.PrefsHelper
 /**
  * Created by Rounak Khandeparkar on 3/12/21.
  */
-class MainActivityViewModel(application: Application) : AndroidViewModel(application) {
+open class MainActivityViewModel(application: Application) : AndroidViewModel(application) {
 
     private var repository: Repository? = null
     var isLoading = MutableLiveData<Boolean>()
@@ -36,12 +36,13 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
         fetchPetsList()
     }
 
-    private fun fetchPetsList() {
+
+    fun fetchPetsList() {
         isLoading.postValue(true)
         petsListLiveData = repository!!.getPetsList()
     }
 
-    private fun fetchSettings() {
+    fun fetchSettings() {
         isLoading.postValue(true)
         settingsLiveData = repository!!.getSettings()
     }

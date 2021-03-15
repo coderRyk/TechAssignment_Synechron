@@ -14,7 +14,7 @@ import com.rdevs.techassignment.PetsAdapter
 import com.rdevs.techassignment.R
 import com.rdevs.techassignment.models.Settings
 import com.rdevs.techassignment.network.NetworkHelper
-import com.rdevs.techassignment.utils.UiUtils
+import com.rdevs.techassignment.utils.toggleVisibility
 import okhttp3.*
 import java.util.*
 
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         petsViewModel.isLoading.observe(this, { isLoading: Boolean? ->
             if (isLoading != null) {
-                UiUtils.toggleVisibility(progress, isLoading)
+                progress.toggleVisibility(isLoading)
             }
         })
     }
@@ -116,13 +116,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setupSupportUI(settings: Settings) {
-
-        runOnUiThread {
-            UiUtils.toggleVisibility(btnCall, settings.isCallEnabled);
-            UiUtils.toggleVisibility(btnChat, settings.isChatEnabled);
-            UiUtils.toggleVisibility(tvOfficeHrs, settings.workHours?.isNotEmpty()!!);
+            btnCall.toggleVisibility(settings.isCallEnabled)
+            btnChat.toggleVisibility(settings.isChatEnabled)
+            tvOfficeHrs.toggleVisibility(settings.workHours?.isNotEmpty()!!)
             tvOfficeHrs.text = settings.workHours;
-        }
     }
 
     //endregion
