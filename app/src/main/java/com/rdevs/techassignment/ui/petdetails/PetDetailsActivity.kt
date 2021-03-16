@@ -26,7 +26,7 @@ class PetDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pet_details_activity);
 
-        val pet = intent.extras?.getParcelable<Pet>(KEY_EXTRA_PET);
+        val pet = intent.extras?.getSerializable(KEY_EXTRA_PET) as Pet;
         if (pet != null) {
             title = pet.title
         }
