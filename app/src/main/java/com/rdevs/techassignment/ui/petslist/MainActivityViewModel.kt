@@ -37,14 +37,20 @@ open class MainActivityViewModel(application: Application) : AndroidViewModel(ap
     }
 
 
-    fun fetchPetsList() {
+    fun fetchPetsList(): LiveData<List<Pet>> {
         isLoading.postValue(true)
         petsListLiveData = repository!!.getPetsList()
+        return petsListLiveData
     }
 
-    fun fetchSettings() {
+    fun fetchSettings(): LiveData<Settings> {
         isLoading.postValue(true)
         settingsLiveData = repository!!.getSettings()
+        return settingsLiveData
+    }
+
+    fun stopLoading(){
+        isLoading.postValue(false)
     }
 
 

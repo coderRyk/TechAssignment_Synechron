@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         petsViewModel.petsListLiveData
             .observe(this, { petsList ->
                 if (!petsList.isNullOrEmpty()) {
-                    petsViewModel.isLoading.postValue(false)
+                    petsViewModel.stopLoading()
                     petsAdapter.data = petsList as ArrayList<Pet>;
                 }
             })
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         petsViewModel.settingsLiveData
             .observe(this, { settings ->
                 if (settings != null) {
-                    petsViewModel.isLoading.postValue(false)
+                    petsViewModel.stopLoading()
                     setupSupportUI(settings)
                 }
             })
